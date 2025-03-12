@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a page which contains a description about Harry">
+    <title>Forms - Let's Learn It</title>
+</head>
+<body>
+    <h1>Form to Apply for Sigma Web Development Course - TA</h1>
+
+    <!-- Corrected form tag's action and method -->
+    <form action="/submit" method="POST">
+        <div>
+            <label for="username">Enter your username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        
+        <div>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+        <div>
+            <select name="fruits">
+                <option value="apple">Apple</option>
+                <option value="banana">Banana</option>
+                <option value="cherry">Cherry</option>
+          </select>
+        </div>
+    </form>
+</body>
+</html>
