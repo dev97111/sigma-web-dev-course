@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CYBRSIMP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 3rem;
+      margin: 2rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      color: #f1c40f;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+      border-radius: 15px;
+      padding: 1rem;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      color: #f1c40f;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .card button {
+      background-color: #f1c40f;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .card button:hover {
+      background-color: #0dd449;
+    }
+
+    .about-section {
+      background-color: #2a2a2a;
+      padding: 2rem;
+      margin: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .about-section h2 {
+      text-align: center;
+      color: #f1c40f;
+    }
+
+    .about-section p {
+      color: #ddd;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    logo{
+        height: 32px;
+            width: 32px;
+            background: orange;
+            position: fixed;
+            bottom: 12px;
+            right: 23px;
+            border-radius: 60px;
+    }
+
+    .orange-box {
+             height: 32px;
+             width: 32px;
+             background: orange;
+             position: fixed;
+             bottom: 12px;
+             right: 23px;
+             border-radius: 60px;
+         }
+  
+
+
+nav a {
+  margin-left: 1rem;
+}
+
+    
+
+  </style>
+</head>
+<body>
+  <div class="logo">
+    
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="title">CYBRSIMP</div>
+
+  <div class="card-container">
+    <div class="card">
+      <img src="https://i.pinimg.com/originals/fe/51/89/fe51897d65b86b2d96e3e325670ff53e.jpg" alt="rocket raccon" />
+      <h3>rocket raccon</h3>
+      <p>Rocket Raccoon, also known as Rocket, is a character from Marvel Comics and the Marvel Cinematic Universe. Created by writer Bill Mantlo and artist Keith Giffen, he first appeared in Marvel Preview #7 (July 1976).
+        His name and aspects of his character were inspired </p>
+      <button>Read More</button>
+    </div>
+    <div class="card">
+      <img src="https://media.gettyimages.com/id/112134837/photo/munich-germany-chris-hemsworth-attends-the-thor-munich-photocall-at-hotel-bayerischer-hof-on.jpg?s=612x612&w=0&k=20&c=VW2M_9msCirKXrVLYzHF81YZ5yADhK8TVCWnaUpusGE=" alt="Chris Hemsworth " />
+      <h3>Chris Hemsworth </h3>
+      <p>Thor Odinson is a superhero appearing in American comic books published by Marvel Comics. Created by artist Jack Kirby, writer Stan Lee, and scripter Larry Lieber, Thor first appeared in Journey into Mystery #83 (August 1962) and received his own title with Thor #126 (1966).</p>
+      <button>Read More</button>
+    </div>
+    <div class="card">
+      <img src="https://i.pinimg.com/originals/2a/ed/ea/2aedea6486b45a3c5ceb19355a5aecb3.jpg" alt="zyan malik" />
+      <h3>zyan malik</h3>
+      <p>Zain Javadd Malik, known professionally as Zayn Malik, was born on January 12, 1993, in Bradford, England, to Tricia (Brannan) and Yaser Malik, who are of Pakistani and English-Irish descent respectively.
+        He grew up in East Bowling, Bradford, and attended Lower Fields Primary School and Tong High School.
+        Malik's early interest in music was nurtured by his father's extensive</p>
+      <button>Read More</button>
+    </div>
+  </div>
+
+  <div class="about-section" id="about">
+    <h2>WHAT IS LOOKSMAXXING?</h2>
+    <p>
+      "Looksmmaxxing" is a term that originated from online communities, particularly those focused on self-improvement and personal aesthetics. It refers to the process of maximizing one’s physical appearance through various means to enhance perceived attractiveness. Individuals who engage in looksmmaxxing typically seek ways to improve their appearance, boost self-confidence, and potentially enhance their social and romantic prospects.
+    </p>
+    <p>
+      The term is often associated with a combination of grooming, skincare, fitness, fashion, and sometimes even cosmetic procedures. It’s important to note that looksmmaxxing can vary greatly from person to person, and the emphasis on certain aspects of physical appearance may differ based on individual preferences and cultural influences.
+    </p>
+  </div>
+  <div class="orange-box">
+ 
+  </div>
+</body>
+</html>
