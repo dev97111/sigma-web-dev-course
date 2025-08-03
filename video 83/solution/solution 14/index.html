@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smooth Scroll Example</title>
+  <style>
+    #scrollBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    body {
+      height: 2000px; /* Just to create scroll space */
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<button id="scrollBtn">⬆️ Back to Top</button>
+
+<script>
+  function smoothScrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  // Attach the function to button
+  document.getElementById("scrollBtn").addEventListener("click", smoothScrollToTop);
+</script>
+
+</body>
+</html>

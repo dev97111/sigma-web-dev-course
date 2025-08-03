@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Async Array Mapping</title>
+</head>
+<body>
+  <h2>🔁 Async Array Mapping</h2>
+  <button onclick="runAsyncMap()">Run Async Map</button>
+
+  <script>
+    function asyncDouble(num) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(num * 2);
+        }, 500);
+      });
+    }
+
+    function asyncMap(numbers) {
+      return numbers.map(asyncDouble);
+    }
+
+    async function runAsyncMap() {
+      const input = prompt("Enter numbers separated by commas (e.g. 2,4,6):");
+      const numbers = input.split(',').map(Number);
+
+      const promises = asyncMap(numbers);
+
+      const results = await Promise.all(promises);
+      alert("✅ Doubled after 500ms:\n" + results.join(", "));
+    }
+  </script>
+</body>
+</html>

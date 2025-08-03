@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sigma Dev Q4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px 15px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Sigma Developer Challenges</h1>
+
+  <h2>✅ Q4: Password Validator</h2>
+  <button onclick="validatePassword()">Validate Password</button>
+
+  <script>
+    // Q4: Password Validator
+    function isValidPassword(password) {
+      const isLongEnough = password.length >= 8;
+      const hasUppercase = /[A-Z]/.test(password);
+      const hasLowercase = /[a-z]/.test(password);
+      const hasDigit = /[0-9]/.test(password);
+
+      return isLongEnough && hasUppercase && hasLowercase && hasDigit;
+    }
+
+    function validatePassword() {
+      const pwd = prompt("Enter a password:");
+      if (isValidPassword(pwd)) {
+        alert("✅ Password is VALID.");
+      } else {
+        alert("❌ Password is INVALID.\nRules:\n- At least 8 characters\n- 1 uppercase\n- 1 lowercase\n- 1 digit");
+      }
+    }
+
+ 
+  </script>
+
+</body>
+</html>

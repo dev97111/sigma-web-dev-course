@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Editable Shopping Cart 🛒</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #1f2937;
+    }
+
+    .product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .product input {
+      width: 60px;
+      padding: 5px;
+    }
+
+    .add-section input {
+      margin: 5px;
+      padding: 7px;
+      width: 150px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+
+    #total {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #16a34a;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🛍️ Your Shopping Cart</h2>
+
+  <div id="cartList"></div>
+
+  <div class="add-section">
+    <h3>Add New Product</h3>
+    <input type="text" id="nameInput" placeholder="Product Name" />
+    <input type="number" id="priceInput" placeholder="Price" />
+    <input type="number" id="qtyInput" placeholder="Quantity" />
+    <button onclick="addProduct()">Add Product</button>
+  </div>
+
+  <button onclick="calculateAndShowTotal()">Calculate Total</button>
+  <div id="total"></div>
+
+  <script>
+    // Load from localStorage or start with default
+    let cart = JSON.parse(localStorage.getItem("cartData")) || [
+      { name: "iPhone", price: 80000, quantity: 1 },
+      { name: "AirPods", price: 20000, quantity: 2 },
+      { name: "Charger", price: 3000, quantity: 3 }
+    ];
+
+    function saveCart() {
+      localStorage.setItem("cartData", JSON.stringify(cart));
+    }
+
+    function renderCart() {
+      const cartList = document.getElementById("cartList");
+      cartList.innerHTML = "";
+
+      cart.forEach((item, index) => {
+        cartList.innerHTML += `
+          <div class="product">
+            <div>
+              <strong>${item.name}</strong><br>
+              ₹${item.price} × 
+              <input type="number" value="${item.quantity}" min="0" onchange="updateQty(${index}, this.value)" />
+            </div>
+            <button onclick="removeProduct(${index})">Remove</button>
+          </div>
+        `;
+      });
+    }
+
+    function updateQty(index, newQty) {
+      cart[index].quantity = parseInt(newQty);
+      saveCart();
+    }
+
+    function removeProduct(index) {
+      cart.splice(index, 1);
+      saveCart();
+      renderCart();
+      calculateAndShowTotal();
+    }
+
+    function addProduct() {
+      const name = document.getElementById("nameInput").value;
+      const price = parseFloat(document.getElementById("priceInput").value);
+      const quantity = parseInt(document.getElementById("qtyInput").value);
+
+      if (name && price > 0 && quantity >= 0) {
+        cart.push({ name, price, quantity });
+        saveCart();
+        renderCart();
+        calculateAndShowTotal();
+        document.getElementById("nameInput").value = "";
+        document.getElementById("priceInput").value = "";
+        document.getElementById("qtyInput").value = "";
+      } else {
+        alert("Please enter valid product details.");
+      }
+    }
+
+    function calculateTotal(products) {
+      return products.reduce((total, item) => {
+        return total + item.price * item.quantity;
+      }, 0);
+    }
+
+    function calculateAndShowTotal() {
+      const total = calculateTotal(cart);
+      document.getElementById("total").textContent = "🟩 Total: ₹" + total;
+    }
+
+    // Initial render
+    renderCart();
+    calculateAndShowTotal();
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+

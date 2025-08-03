@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🛒 Async Shopper</title>
+</head>
+<body>
+
+  <h2>🛍️ Place Your Order</h2>
+  <button onclick="handleOrder()">Place Order</button>
+
+  <p id="status"></p>
+
+  <script>
+    function placeOrder() {
+      return new Promise((resolve) => {
+        const delay = Math.floor(Math.random() * 1500) + 500;
+        setTimeout(() => {
+          resolve("✅ Order placed successfully after " + delay + "ms!");
+        }, delay);
+      });
+    }
+
+    async function handleOrder() {
+      document.getElementById("status").textContent = "⏳ Placing order...";
+      const message = await placeOrder();
+      document.getElementById("status").textContent = message;
+    }
+  </script>
+
+</body>
+</html>

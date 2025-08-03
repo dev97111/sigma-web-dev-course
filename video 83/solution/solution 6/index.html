@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vowel Counter</title>
+</head>
+<body>
+  <h2>Vowel Counter</h2>
+  <button onclick="countVowelsInString()">Click to Count Vowels</button>
+
+  <script>
+    function countVowels(str) {
+      const vowels = 'aeiouAEIOU';
+      let count = 0;
+      for (let char of str) {
+        if (vowels.includes(char)) count++;
+      }
+      return count;
+    }
+
+    function countVowelsInString() {
+      const input = prompt("Enter a string:");
+      const result = countVowels(input);
+      alert("✅ Total vowels: " + result);
+    }
+  </script>
+</body>
+</html>

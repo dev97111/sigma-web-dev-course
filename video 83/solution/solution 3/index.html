@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mirror Mirror</title>
+</head>
+<body>
+  <h2>3. Mirror Mirror</h2>
+  <button onclick="runMirror()">Mirror a String</button>
+
+  <script>
+    function mirrorString(str) {
+      return str + str.split('').reverse().join('');
+    }
+
+    function runMirror() {
+      const input = "gurudev goswami";
+      const mirrored = mirrorString(input);
+      alert("Mirrored string: " + mirrored);
+    }
+  </script>
+</body>
+</html>

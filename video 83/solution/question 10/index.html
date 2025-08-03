@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>☕ Coffee Machine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #fdfdfd;
+    }
+
+    .coffee-line {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    #coffeeType {
+      padding: 6px 10px;
+      font-size: 1.1rem;
+      width: auto;
+      min-width: 80px;
+      max-width: 180px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      outline: none;
+      background: transparent;
+      font-style: italic;
+      color: #444;
+    }
+
+    #coffeeType::placeholder {
+      color: #999;
+      font-style: italic;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #5c3d2e;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #3b261a;
+    }
+
+    #coffeeStatus {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>☕ Brew Your Coffee</h2>
+
+  <div class="coffee-line">
+    I would like a 
+    <input id="coffeeType" placeholder="Latte, capachino" />
+    please.
+  </div>
+
+  <button onclick="makeCoffee()">Brew Coffee</button>
+
+  <p id="coffeeStatus"></p>
+
+  <script>
+    function brewCoffee(coffeeType) {
+      return new Promise((resolve) => {
+        const delay = Math.floor(Math.random() * 2000) + 1000;
+        setTimeout(() => {
+          resolve(`☕ Your ${coffeeType} is ready after ${delay}ms!`);
+        }, delay);
+      });
+    }
+
+    async function makeCoffee() {
+      const type = document.getElementById("coffeeType").value.trim();
+      if (!type) {
+        alert("Please enter a coffee type!");
+        return;
+      }
+
+      document.getElementById("coffeeStatus").textContent = "⏳ Brewing your coffee...";
+      const message = await brewCoffee(type);
+      document.getElementById("coffeeStatus").textContent = message;
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+// 11. The Array Filterer:
+  //  You are building a search feature for your e-commerce site. 
+  //  Write a function named filterProducts that takes an array of product objects and a filter criterion.
+  //   The function should return a new array containing only the products that match the filter criterion.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🛍️ Filter Products</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    input, select {
+      margin-right: 10px;
+      padding: 6px;
+      font-size: 1rem;
+    }
+
+    .product {
+      margin-top: 10px;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🛒 Product Filter</h2>
+
+  <label for="brandSelect">Filter by brand:</label>
+  <select id="brandSelect">
+    <option value="">--All--</option>
+    <option value="Apple">Apple</option>
+    <option value="Nike">Nike</option>
+    <option value="Adidas">Adidas</option>
+  </select>
+  <button onclick="applyFilter()">Filter</button>
+
+  <div id="results"></div>
+
+  <script>
+    const products = [
+      { name: "iPhone", category: "Electronics", brand: "Apple", price: 80000 },
+      { name: "AirPods", category: "Electronics", brand: "Apple", price: 20000 },
+      { name: "Running Shoes", category: "Footwear", brand: "Nike", price: 6000 },
+      { name: "Sandals", category: "Footwear", brand: "Adidas", price: 3000 }
+    ];
+
+    function filterProducts(products, filter) {
+      return products.filter(product => {
+        for (let key in filter) {
+          if (filter[key] && product[key] !== filter[key]) {
+            return false;
+          }
+        }
+        return true;
+      });
+    }
+
+    function applyFilter() {
+      const brand = document.getElementById("brandSelect").value;
+      const filtered = filterProducts(products, { brand });
+      displayResults(filtered);
+    }
+
+    function displayResults(productArray) {
+      const container = document.getElementById("results");
+      container.innerHTML = "";
+
+      if (productArray.length === 0) {
+        container.innerHTML = "<p>No products found.</p>";
+        return;
+      }
+
+      productArray.forEach(p => {
+        container.innerHTML += `
+          <div class="product">
+            <strong>${p.name}</strong><br>
+            Category: ${p.category}<br>
+            Brand: ${p.brand}<br>
+            Price: ₹${p.price}
+          </div>`;
+      });
+      
+    }
+
+    // Show all products initially
+    displayResults(products);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Token Manager</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input { padding: 6px; margin: 5px; width: 200px; }
+    button { padding: 6px 12px; }
+  </style>
+</head>
+<body>
+
+  <h2>🔐 Token Manager</h2>
+
+  <input type="text" id="tokenInput" placeholder="Enter token here" />
+  <input type="number" id="expireInput" placeholder="Expire in minutes" />
+  <button onclick="saveToken()">Save Token</button>
+
+  <p id="message"></p>
+
+  <script>
+    function setAuthToken(token, expiresInMinutes) {
+      const now = new Date();
+      const expiryTime = now.getTime() + expiresInMinutes * 60 * 1000;
+
+      const authObject = {
+        token: token,
+        expiresAt: expiryTime
+      };
+
+      localStorage.setItem("authData", JSON.stringify(authObject));
+    }
+
+    function saveToken() {
+      const token = document.getElementById("tokenInput").value;
+      const minutes = parseInt(document.getElementById("expireInput").value);
+
+      if (token && minutes) {
+        setAuthToken(token, minutes);
+        document.getElementById("message").textContent = "✅ Token saved successfully!";
+      } else {
+        document.getElementById("message").textContent = "⚠️ Please enter both token and expiry time.";
+      }
+    }
+  </script>
+
+</body>
+</html>

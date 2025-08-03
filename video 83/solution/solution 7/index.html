@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Note Saver</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, textarea { display: block; margin: 10px 0; padding: 8px; width: 300px; }
+    button { padding: 10px 20px; }
+  </style>
+</head>
+<body>
+
+  <h2>📝 Save Note to Local Storage</h2>
+
+  <input id="title" placeholder="Note Title" />
+  <textarea id="content" rows="4" placeholder="Note Content"></textarea>
+  <button onclick="handleSaveNote()">Save Note</button>
+
+  <script>
+    function saveNoteToLocalStorage(note) {
+      const existingNotes = JSON.parse(localStorage.getItem("notes")) || [];
+      existingNotes.push(note);
+      localStorage.setItem("notes", JSON.stringify(existingNotes));
+    }
+
+    function handleSaveNote() {
+      const title = document.getElementById("title").value;
+      const content = document.getElementById("content").value;
+
+      if (!title || !content) {
+        alert("Please enter both title and content.");
+        return;
+      }
+
+      const note = {
+        id: Date.now(), // unique ID using timestamp
+        title: title,
+        content: content
+      };
+
+      saveNoteToLocalStorage(note);
+      alert("✅ Note saved!");
+      document.getElementById("title").value = "";
+      document.getElementById("content"
